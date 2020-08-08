@@ -13,6 +13,8 @@ Stereo 3D reconstruction with OpenCV using sample code from OpenCV.org.
 # Related openCV API function #
 
 # Flow # 
+step0. prepare dataset, compling environment, and theory.
+step1. 
 
 # Reference #
 [OpenCV sample code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
