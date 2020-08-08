@@ -1,6 +1,6 @@
 # stereo_reconstruction_OpenCV_impl #
-Stereo 3D reconstruction with OpenCV using an iPhone camera.
-Stereo 3D reconstruction with OpenCV using sample code from OpenCV.org.
+Stereo 3D reconstruction with OpenCV using an iPhone camera.                <br>
+Stereo 3D reconstruction with OpenCV using sample code from OpenCV.org.     <br>
 
 # Target #
 1. implementation of stereo camera reconstruction(multi-camera)
