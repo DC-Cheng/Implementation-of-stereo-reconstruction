@@ -125,9 +125,17 @@ else if (alg == STEREO_SGBM)
 else if (alg == STEREO_3WAY)
 	sgbm->setMode(StereoSGBM::MODE_SGBM_3WAY);
 ```
+<br>![stereo_match_result.png](https://github.com/DC-Cheng/stereo_reconstruction_OpenCV_impl/blob/master/stereo_match_result.png?raw=true)
 
 Step3:
 > Perform 3D reconstruction- Project 2d pixels into its real world 3D coordinates
+<br>![result_3d.png](https://github.com/DC-Cheng/stereo_reconstruction_OpenCV_impl/blob/master/result_3d.png?raw=true)
+
+# Results(Meta) #
+As you can see the disparity images of 2d map and 3d results are significantly with wrong 3d data output.
+The dataSet is prepared for stereo_calibration sample code without hardware spec.
+Therefore, it is important to check the `hardware parameter` in order to `avoid from getting wrong 3d data value`.
+At this point, I may need a more complete dataSet to get a good one, not a worse one like this.
 
 # Reference #
 [Omar Padierna](https://medium.com/@omar.ps16)
