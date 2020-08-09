@@ -13,10 +13,10 @@ Stereo 3D reconstruction with OpenCV using sample code to implement.
 # Related openCV API function #
 
 # Pipeline # 
-step0:
+Step0:
 > Prepare dataset, compling environment, and theory.
 
-step1:
+Step1:
 > Calibrate camera - to get camera intrinsics and extrinsic parameters
 ```
 double rms = stereoCalibrate(objectPoints, imagePoints[0], imagePoints[1],
@@ -86,10 +86,10 @@ then we can get:
 `output_intrinsic_parameter.yml`, `output_extrinsic_parameter.yml`
 <br>![rectified_result](https://github.com/DC-Cheng/stereo_reconstruction_OpenCV_impl/blob/master/rectified_result.png?raw=true)
 
-step2:
+Step2:
 > Generate depth maps
 
-step3:
+Step3:
 > Perform 3D reconstruction- Project 2d pixels into its real world 3D coordinates
 
 # Reference #
