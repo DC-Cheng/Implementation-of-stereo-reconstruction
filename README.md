@@ -13,7 +13,11 @@ Stereo 3D reconstruction with OpenCV using an iPhone camera.                <br>
 
 # Pipeline # 
 > prepare dataset, compling environment, and theory.
-<br> step1: sigle camera calibration
+<br> Calibrate camera - camera intrinsics and extrinsic parameters
+<br> Rectify Image - Align image pixels on epipolar lines to aid in disparity generation
+<br> Generate depth maps
+<br> Perform 3D reconstruction- Project 2d pixels into its real world 3D coordinates
+<br> //ref: [github-abhileshborode](https://github.com/abhileshborode/Stereo-depth-reconstruction)
 
 # Reference #
 [OpenCV sample code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
