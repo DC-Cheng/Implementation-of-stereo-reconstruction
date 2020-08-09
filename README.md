@@ -13,10 +13,10 @@ Stereo 3D reconstruction with OpenCV using sample code to implement.
 # Related openCV API function #
 
 # Pipeline # 
-step0:
+Step0:
 > Prepare dataset, compling environment, and theory.
 
-step1:
+Step1:
 > Calibrate camera - to get camera intrinsics and extrinsic parameters
 ```
 double rms = stereoCalibrate(objectPoints, imagePoints[0], imagePoints[1],
@@ -84,10 +84,49 @@ P2 = cameraMatrix[1];
 ```
 then we can get:
 `output_intrinsic_parameter.yml`, `output_extrinsic_parameter.yml`
+<br>![rectified_result](https://github.com/DC-Cheng/stereo_reconstruction_OpenCV_impl/blob/master/rectified_result.png?raw=true)
 
-step2:
+Step2:
 > Generate depth maps
-step3:
+```
+
+numberOfDisparities = numberOfDisparities > 0 ? numberOfDisparities : ((img_size.width / 8) + 15) & -16;
+
+bm->setROI1(roi1);
+bm->setROI2(roi2);
+bm->setPreFilterCap(31);
+bm->setBlockSize(SADWindowSize > 0 ? SADWindowSize : 9);
+bm->setMinDisparity(0);
+bm->setNumDisparities(numberOfDisparities);
+bm->setTextureThreshold(10);
+bm->setUniquenessRatio(15);
+bm->setSpeckleWindowSize(100);
+bm->setSpeckleRange(32);
+bm->setDisp12MaxDiff(1);
+
+sgbm->setPreFilterCap(63);
+int sgbmWinSize = SADWindowSize > 0 ? SADWindowSize : 3;
+sgbm->setBlockSize(sgbmWinSize);
+
+int cn = img1.channels();
+
+sgbm->setP1(8 * cn*sgbmWinSize*sgbmWinSize);
+sgbm->setP2(32 * cn*sgbmWinSize*sgbmWinSize);
+sgbm->setMinDisparity(0);
+sgbm->setNumDisparities(numberOfDisparities);
+sgbm->setUniquenessRatio(10);
+sgbm->setSpeckleWindowSize(100);
+sgbm->setSpeckleRange(32);
+sgbm->setDisp12MaxDiff(1);
+if (alg == STEREO_HH)
+	sgbm->setMode(StereoSGBM::MODE_HH);
+else if (alg == STEREO_SGBM)
+	sgbm->setMode(StereoSGBM::MODE_SGBM);
+else if (alg == STEREO_3WAY)
+	sgbm->setMode(StereoSGBM::MODE_SGBM_3WAY);
+```
+
+Step3:
 > Perform 3D reconstruction- Project 2d pixels into its real world 3D coordinates
 
 # Reference #
@@ -97,13 +136,12 @@ step3:
 <br> [part3](https://medium.com/@omar.ps16/stereo-3d-reconstruction-with-opencv-using-an-iphone-camera-part-iii-95460d3eddf0)
 <br> [github-amroamroamro](http://amroamroamro.github.io/mexopencv/opencv/stereo_calibration_demo.html)
 <br> [github-abhileshborode](https://github.com/abhileshborode/Stereo-depth-reconstruction)
-<br> [OpenCV](https://github.com/opencv/opencv/blob/3.2.0/samples/cpp/stereo_calib.cpp)
-<br> [OpenCV-example](https://ithelp.ithome.com.tw/articles/10223959)
-<br> [OpenCV sample code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
+<br> [OpenCV-stereo_calibrate-example1](https://github.com/opencv/opencv/blob/3.2.0/samples/cpp/stereo_calib.cpp)
+<br> [OpenCV-stereo_calibrate-example2](https://ithelp.ithome.com.tw/articles/10223959)
+<br> [OpenCV-stereo_depthMatch-sample-code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
 
 # Hint #
-使用`cv::CommandLineParser()`
-其中argv命令引數的部分，這個範例使用了cv::CommandLineParser
+其中argv命令引數的部分，這個範例使用了`cv::CommandLineParser`
 你可以修改input || 裡面的設定檔檔名
 ```
 	cv::CommandLineParser parser(argc, argv, "{w|9|}{h|6|}{s|50.0|}{nr||}{help|1|}{@input|stereo_calib.xml|}");
@@ -117,8 +155,8 @@ step3:
   ```
 
 如何修改"argv命令引數" in visual studio
-[VS設定命列參數列-ref1](https://edisonx.pixnet.net/blog/post/57060736)
-[VS設定命列參數列-ref2](https://www.itread01.com/p/879116.html)
-[VS設定命列參數列-ref3](https://social.msdn.microsoft.com/Forums/en-US/20865ea1-ff94-41a7-b668-a7f24154f3b4/argc-and-argv-inputs?forum=vcmfcatl)
-[CommandLineParser使用](https://www.itread01.com/content/1541983112.html)
+<br>[VS設定命列參數列-ref1](https://edisonx.pixnet.net/blog/post/57060736)
+<br>[VS設定命列參數列-ref2](https://www.itread01.com/p/879116.html)
+<br>[VS設定命列參數列-ref3](https://social.msdn.microsoft.com/Forums/en-US/20865ea1-ff94-41a7-b668-a7f24154f3b4/argc-and-argv-inputs?forum=vcmfcatl)
+<br>[CommandLineParser使用](https://www.itread01.com/content/1541983112.html)
   
