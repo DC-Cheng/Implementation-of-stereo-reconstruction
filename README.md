@@ -88,6 +88,43 @@ then we can get:
 
 Step2:
 > Generate depth maps
+```
+
+numberOfDisparities = numberOfDisparities > 0 ? numberOfDisparities : ((img_size.width / 8) + 15) & -16;
+
+bm->setROI1(roi1);
+bm->setROI2(roi2);
+bm->setPreFilterCap(31);
+bm->setBlockSize(SADWindowSize > 0 ? SADWindowSize : 9);
+bm->setMinDisparity(0);
+bm->setNumDisparities(numberOfDisparities);
+bm->setTextureThreshold(10);
+bm->setUniquenessRatio(15);
+bm->setSpeckleWindowSize(100);
+bm->setSpeckleRange(32);
+bm->setDisp12MaxDiff(1);
+
+sgbm->setPreFilterCap(63);
+int sgbmWinSize = SADWindowSize > 0 ? SADWindowSize : 3;
+sgbm->setBlockSize(sgbmWinSize);
+
+int cn = img1.channels();
+
+sgbm->setP1(8 * cn*sgbmWinSize*sgbmWinSize);
+sgbm->setP2(32 * cn*sgbmWinSize*sgbmWinSize);
+sgbm->setMinDisparity(0);
+sgbm->setNumDisparities(numberOfDisparities);
+sgbm->setUniquenessRatio(10);
+sgbm->setSpeckleWindowSize(100);
+sgbm->setSpeckleRange(32);
+sgbm->setDisp12MaxDiff(1);
+if (alg == STEREO_HH)
+	sgbm->setMode(StereoSGBM::MODE_HH);
+else if (alg == STEREO_SGBM)
+	sgbm->setMode(StereoSGBM::MODE_SGBM);
+else if (alg == STEREO_3WAY)
+	sgbm->setMode(StereoSGBM::MODE_SGBM_3WAY);
+```
 
 Step3:
 > Perform 3D reconstruction- Project 2d pixels into its real world 3D coordinates
