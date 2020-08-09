@@ -84,6 +84,7 @@ P2 = cameraMatrix[1];
 ```
 then we can get:
 `output_intrinsic_parameter.yml`, `output_extrinsic_parameter.yml`
+<br>![rectified_result](https://github.com/DC-Cheng/stereo_reconstruction_OpenCV_impl/blob/master/rectified_result.png?raw=true)
 
 step2:
 > Generate depth maps
@@ -102,8 +103,7 @@ step3:
 <br> [OpenCV sample code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
 
 # Hint #
-使用`cv::CommandLineParser()`
-其中argv命令引數的部分，這個範例使用了cv::CommandLineParser
+其中argv命令引數的部分，這個範例使用了`cv::CommandLineParser`
 你可以修改input || 裡面的設定檔檔名
 ```
 	cv::CommandLineParser parser(argc, argv, "{w|9|}{h|6|}{s|50.0|}{nr||}{help|1|}{@input|stereo_calib.xml|}");
@@ -117,8 +117,8 @@ step3:
   ```
 
 如何修改"argv命令引數" in visual studio
-[VS設定命列參數列-ref1](https://edisonx.pixnet.net/blog/post/57060736)
-[VS設定命列參數列-ref2](https://www.itread01.com/p/879116.html)
-[VS設定命列參數列-ref3](https://social.msdn.microsoft.com/Forums/en-US/20865ea1-ff94-41a7-b668-a7f24154f3b4/argc-and-argv-inputs?forum=vcmfcatl)
-[CommandLineParser使用](https://www.itread01.com/content/1541983112.html)
+<br>[VS設定命列參數列-ref1](https://edisonx.pixnet.net/blog/post/57060736)
+<br>[VS設定命列參數列-ref2](https://www.itread01.com/p/879116.html)
+<br>[VS設定命列參數列-ref3](https://social.msdn.microsoft.com/Forums/en-US/20865ea1-ff94-41a7-b668-a7f24154f3b4/argc-and-argv-inputs?forum=vcmfcatl)
+<br>[CommandLineParser使用](https://www.itread01.com/content/1541983112.html)
   
