@@ -1,5 +1,4 @@
 # stereo_reconstruction_OpenCV_impl #
-Stereo 3D reconstruction with OpenCV using an iPhone camera.
 Stereo 3D reconstruction with OpenCV using sample code to implement.
 
 # Target #
@@ -7,7 +6,8 @@ Stereo 3D reconstruction with OpenCV using sample code to implement.
 2. implementation of stereo camrea calibration and compensation.
 
 # Theory #
-[epipolar geometry](https://en.wikipedia.org/wiki/Epipolar_geometry)
+<br>[single_camera_calibration](https://github.com/DC-Cheng/camera_calibration_OpenCV_impl)
+<br>[epipolar geometry](https://en.wikipedia.org/wiki/Epipolar_geometry)
 <br>![Image0](https://pic.pimg.tw/silverwind1982/1472199756-4228555464_n.png)
 
 # Related openCV API function #
