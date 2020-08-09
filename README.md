@@ -99,9 +99,9 @@ Step3:
 <br> [part3](https://medium.com/@omar.ps16/stereo-3d-reconstruction-with-opencv-using-an-iphone-camera-part-iii-95460d3eddf0)
 <br> [github-amroamroamro](http://amroamroamro.github.io/mexopencv/opencv/stereo_calibration_demo.html)
 <br> [github-abhileshborode](https://github.com/abhileshborode/Stereo-depth-reconstruction)
-<br> [OpenCV](https://github.com/opencv/opencv/blob/3.2.0/samples/cpp/stereo_calib.cpp)
-<br> [OpenCV-example](https://ithelp.ithome.com.tw/articles/10223959)
-<br> [OpenCV sample code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
+<br> [OpenCV-stereo_calibrate-example1](https://github.com/opencv/opencv/blob/3.2.0/samples/cpp/stereo_calib.cpp)
+<br> [OpenCV-stereo_calibrate-example2](https://ithelp.ithome.com.tw/articles/10223959)
+<br> [OpenCV-stereo_depthMatch-sample-code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
 
 # Hint #
 其中argv命令引數的部分，這個範例使用了`cv::CommandLineParser`
