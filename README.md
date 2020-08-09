@@ -88,6 +88,7 @@ then we can get:
 
 step2:
 > Generate depth maps
+
 step3:
 > Perform 3D reconstruction- Project 2d pixels into its real world 3D coordinates
 
