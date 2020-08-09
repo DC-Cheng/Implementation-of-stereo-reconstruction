@@ -11,9 +11,9 @@ Stereo 3D reconstruction with OpenCV using an iPhone camera.                <br>
 
 # Related openCV API function #
 
-# Flow # 
-step0. prepare dataset, compling environment, and theory.
-step1. 
+# Pipeline # 
+> prepare dataset, compling environment, and theory.
+<br> step1: sigle camera calibration
 
 # Reference #
 [OpenCV sample code](https://docs.opencv.org/master/dd/d53/tutorial_py_depthmap.html)
